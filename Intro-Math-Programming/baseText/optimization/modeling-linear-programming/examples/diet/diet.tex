@@ -1,0 +1,53 @@
+\begin{examplewithallcode}{The Diet Problem}
+    {}
+    {https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/modeling-linear-programming/examples/diet/diet_problem_gurobipy.ipynb}
+    {https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/modeling-linear-programming/examples/diet/diet_problem_pulp.ipynb}
+    
+    In the future (as envisioned in a bad 70's science fiction film) all food is in tablet form, and there are four types, green, blue, yellow, and red. A balanced, futuristic diet requires, at least 20 units of Iron, 25 units of Vitamin B, 30 units of Vitamin C, and 15 units of Vitamin D. Formulate an LP that ensures a balanced diet at the minimum possible cost.
+    \end{examplewithallcode}
+    
+    \begin{table}[h!]
+    \begin{center}
+    \label{tab:pillContent}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    Tablet & Iron & B & C & D & Cost (\$) \\ \hline
+    Chem 1 & 6 & 6 & 7 & 4 & 1.25 \\
+    Chem 2 & 4 & 5 & 4 & 9 & 1.05 \\
+    Chem 3 & 5 & 2 & 5 & 6 & 0.85 \\
+    Chem 4 & 3 & 6 & 3 & 2 & 0.65 \\
+    \hline
+    \end{tabular}
+    \end{center}
+    \end{table}
+    
+    \begin{solution}
+    \smallskip \underline{Sets:}
+    \begin{itemize}
+    \item Set of tablets $\{1,2,3,4\}$
+    \end{itemize}
+    
+    \smallskip \underline{Parameters:}
+    \begin{itemize}
+    \item Iron in each tablet
+    \item Vitamin B in each tablet
+    \item Vitamin C in each tablet
+    \item Vitamin D in each tablet
+    \item Cost of each tablet
+    \end{itemize}
+    
+    \smallskip  \underline{Decision variables:} \\
+    $x_i$ : number of tablet of type $i$ to include in the diet, $\forall i \in \{1,2,3,4\}$.\\
+    
+    \smallskip  \underline{Objective and Constraints:}
+    \begin{align*}
+    \mbox{Min~~ } & z = 1.25x_1 + 1.05x_2 + 0.85x_3 + 0.65x_4 \\
+    \mbox{s.t.~~} &  6x_1 + 4x_2 + 5x_3 + 3x_4 \ge 20  \\
+    & 6x_1 + 5x_2 + 2x_3 + 6x_4 \ge 25 \\
+    & 7x_1 + 4x_2 + 5x_3 + 3x_4 \ge 30 \\
+    & 4x_1 + 9x_2 + 6x_3 + 2x_4 \ge 15  \\
+    & x_1, x_2, x_3, x_4 \ge 0. 
+    \end{align*}
+    \end{solution}
+    
+    %The optimal diet costs \$5.35, and consists of 4.0625 green tablets and 0.3125 blue tablets.

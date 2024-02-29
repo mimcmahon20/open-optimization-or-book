@@ -1,0 +1,54 @@
+\begin{examplewithallcode}{Work Scheduling Problem}
+    {}
+    {https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/modeling-linear-programming/examples/work-scheduling/work_scheduling_gurobi.ipynb}
+    {https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/modeling-linear-programming/examples/work-scheduling/work_scheduling_pulp.ipynb}
+    You are the manager of LP Burger. The following table shows the minimum number of employees required to staff the restaurant on each day of the week. Each employees must work for five consecutive days. Formulate an LP to find the minimum number of employees required to staff the restaurant.
+    
+    \end{examplewithallcode}
+    
+    \begin{table}[h!] \begin{center} \begin{tabular} {|l|l|} 
+    \hline Day of Week & Workers Required   \\ \hline
+    \hline  1 = Monday & 6  \\
+    \hline  2 = Tuesday & 4  \\
+    \hline  3 = Wednesday & 5  \\
+    \hline  4 = Thursday & 4  \\
+    \hline  5 = Friday & 3  \\
+    \hline  6 = Saturday & 7  \\
+    \hline  7 = Sunday & 7  \\
+    \hline \end{tabular} \end{center} \end{table}
+    
+    
+    \begin{solution} This problem has multiple optimal solutions for which days workers begin working on, all of which result in 8 total workers hired. 
+    
+    \underline{Decision variables:} \\
+    $x_i$ : the number of workers that start 5 consecutive days of work on day $i$, $ i = 1,\cdots,7$ \\
+    \smallskip \underline{Objective and Constraints:}
+    \begin{align*}
+    \mbox{Min~~ } & z = x_1 + x_2 + x_3 + x_4 + x_5 + x_6 + x_7  \\
+    \mbox{s.t.~~} & x_1 + x_4 + x_5 + x_6 + x_7 \ge 6 \\
+    & x_2 + x_5 + x_6 + x_7 + x_1 \ge 4 \\
+    & x_3 + x_6 + x_7 + x_1 + x_2 \ge 5 \\
+    & x_4 + x_7 + x_1 + x_2 + x_3 \ge 4 \\
+    & x_5 + x_1 + x_2 + x_3 + x_4 \ge 3 \\
+    & x_6 + x_2 + x_3 + x_4 + x_5 \ge 7 \\
+    & x_7 + x_3 + x_4 + x_5 + x_6 \ge 7 \\
+    & x_1, x_2, x_3, x_4, x_5, x_6, x_7 \ge 0.
+    \end{align*}
+    
+    One solution is as follows:
+    %\begin{table}[h!] 
+    \begin{center} \begin{tabular} {|l|l|}
+    \hline   LP Solution        & IP Solution \\
+    \hline  $z_{LP} = 7.333$    & $z_I = 8.0$ \\
+    \hline  $x_1 = 0$           & $x_1 = 0$ \\
+    \hline  $x_2 = 0.333$       & $x_2 = 0 $ \\
+    \hline  $x_3 = 1$           & $x_3 = 0$ \\
+    \hline  $x_4 = 2.333$       & $x_4 = 3$ \\
+    \hline  $x_5 = 0$           & $x_5 = 0 $ \\
+    \hline  $x_6 = 3.333$       & $x_6 = 4 $ \\
+    \hline  $x_7 = 0.333$       & $x_7 = 1 $ \\
+    \hline
+    \end{tabular} \end{center} 
+    %\end{table}
+    \end{solution}
+    

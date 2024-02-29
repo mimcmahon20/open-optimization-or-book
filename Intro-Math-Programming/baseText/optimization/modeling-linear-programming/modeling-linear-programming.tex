@@ -185,211 +185,27 @@ Notes: Clean up this section.   Finish describing several of the problems, give 
 
 We will begin with a few examples, and then discuss specific problem types that occur often.
 \newpage
-\begin{examplewithallcode}{Production with welding robot}
-{}
-{https://github.com/open-optimization/open-optimization-or-examples/blob/master/linear-programming/production_welding/production_welding_pulp.ipynb}
-{https://github.com/open-optimization/open-optimization-or-examples/blob/master/linear-programming/production_welding/production_welding_gurobipy.ipynb}
-%{productionproblem}{}{}{}
-You have 21 units of transparent aluminum alloy (TAA), LazWeld1, a joining robot leased for 23 hours, and CrumCut1, a cutting robot leased for 17 hours of aluminum cutting. You also have production code for a bookcase, desk, and cabinet, along with commitments to buy any of these you can produce for \$18,  \$16, and  \$10 apiece, respectively.  A bookcase requires 2 units of TAA, 3 hours of joining, and 1 hour of cutting, a desk requires 2 units of TAA, 2 hours of joining, and 2 hour of cutting, and a cabinet requires 1 unit of TAA, 2 hours of joining, and 1 hour of cutting. Formulate an LP to maximize your revenue given your current resources.
 
+%\input{optimization/modeling-linear-programming/examples
 
-\begin{solution}
+\input{optimization/modeling-linear-programming/examples/production-welding-robot/production-welding-robot.tex}
 
-\noindent\medskip \underline{Sets:}
-\begin{itemize}
-\item The types of objects $ = \{$ bookcase,~desk,~cabinet$\}$.
-\end{itemize}
-\medskip \underline{Parameters:} 
-\begin{itemize}
-\item Purchase cost of each object
-\item Units of TAA needed for each object
-\item Hours of joining needed for each object
-\item Hours of cutting needed for each object
-\item Hours of TAA, Joining, and Cutting available on robots
-\end{itemize}
+\input{optimization/modeling-linear-programming/examples/diet/diet.tex}
 
-\noindent\medskip \underline{Decision variables:} \\
-$x_i$ : number of units of product $i$ to produce, \\
-for all $ i = $bookcase,~desk,~cabinet.\\
+\input{optimization/modeling-linear-programming/examples/diet-next/diet-next.tex}
 
-\noindent \medskip \underline{Objective and Constraints:}
-\begin{align*}
-\max \ \ & z = 18x_1 + 16x_2 + 10x_3  & \text{ (profit)}\\
-s.t. \ \ & 2x_1 + 2x_2 + 1x_3 \le 21 & (TAA) \\
-& 3x_1 + 2x_2 + 2x_3 \le 23 & (LazWeld1) \\
-&  1x_1 + 2x_2 + 1x_3 \le 17 & (CrumCut1)  \\
-& x_1, x_2, x_3 \ge 0.
-\end{align*}
-\end{solution}
-\end{examplewithallcode}
+\input{optimization/modeling-linear-programming/examples/work-scheduling/work-scheduling.tex}
 
 
 
 
 
-\begin{examplewithallcode}{The Diet Problem}
-{}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/diet_problem_gurobi.ipynb}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/diet_problem_pulp.ipynb}
-
-In the future (as envisioned in a bad 70's science fiction film) all food is in tablet form, and there are four types, green, blue, yellow, and red. A balanced, futuristic diet requires, at least 20 units of Iron, 25 units of Vitamin B, 30 units of Vitamin C, and 15 units of Vitamin D. Formulate an LP that ensures a balanced diet at the minimum possible cost.
-\end{examplewithallcode}
-
-\begin{table}[h!]
-\begin{center}
-\label{tab:pillContent}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-Tablet & Iron & B & C & D & Cost (\$) \\ \hline
-Chem 1 & 6 & 6 & 7 & 4 & 1.25 \\
-Chem 2 & 4 & 5 & 4 & 9 & 1.05 \\
-Chem 3 & 5 & 2 & 5 & 6 & 0.85 \\
-Chem 4 & 3 & 6 & 3 & 2 & 0.65 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\begin{solution}
-\smallskip \underline{Sets:}
-\begin{itemize}
-\item Set of tablets $\{1,2,3,4\}$
-\end{itemize}
-
-\smallskip \underline{Parameters:}
-\begin{itemize}
-\item Iron in each tablet
-\item Vitamin B in each tablet
-\item Vitamin C in each tablet
-\item Vitamin D in each tablet
-\item Cost of each tablet
-\end{itemize}
-
-\smallskip  \underline{Decision variables:} \\
-$x_i$ : number of tablet of type $i$ to include in the diet, $\forall i \in \{1,2,3,4\}$.\\
-
-\smallskip  \underline{Objective and Constraints:}
-\begin{align*}
-\mbox{Min~~ } & z = 1.25x_1 + 1.05x_2 + 0.85x_3 + 0.65x_4 \\
-\mbox{s.t.~~} &  6x_1 + 4x_2 + 5x_3 + 3x_4 \ge 20  \\
-& 6x_1 + 5x_2 + 2x_3 + 6x_4 \ge 25 \\
-& 7x_1 + 4x_2 + 5x_3 + 3x_4 \ge 30 \\
-& 4x_1 + 9x_2 + 6x_3 + 2x_4 \ge 15  \\
-& x_1, x_2, x_3, x_4 \ge 0. 
-\end{align*}
-\end{solution}
-
-%The optimal diet costs \$5.35, and consists of 4.0625 green tablets and 0.3125 blue tablets.
-
-
-
-
-\begin{examplewithallcode}{The Next Diet Problem}
-{}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/diet_problem_next_gurobi.ipynb}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/diet_problem_next_pulp.ipynb}
-
-Progress is important, and our last problem had too many tablets, so we are going to produce a single, purple, 10 gram tablet for our futuristic diet requires, which are at least 20 units of Iron, 25 units of Vitamin B, 30 units of Vitamin C, and 15 units of Vitamin D, and 2000 calories. The tablet is made from blending 4 nutritious chemicals; the following table shows the units of our nutrients per, and cost of, grams of each chemical.
-Formulate an LP that ensures a balanced diet at the minimum possible cost.
-\end{examplewithallcode}
-
-\begin{table}[h!] \begin{center} \begin{tabular} {|c|c|c|c|c|c|c|}
-\hline Tablet  & Iron  &  B &  C &  D & Calories & Cost (\$) \\ \hline
-\hline  Chem 1  & 6    & 6         & 7         & 4         &  1000    & 1.25 \\
-\hline  Chem 2  & 4    & 5         & 4         & 9         &  250     & 1.05 \\
-\hline  Chem 3  & 5    & 2         & 5         & 6         &  850     & 0.85 \\
-\hline  Chem 4  & 3    & 6         & 3         & 2         &  750     & 0.65 \\
-\hline
-\end{tabular} \end{center} \end{table}
-
-
-\begin{solution}
-
-\smallskip \underline{Sets:}
-\begin{itemize}
-\item Set of chemicals $\{1,2,3,4\}$
-\end{itemize}
-\smallskip \underline{Parameters:}
-\begin{itemize}
-\item Iron in each chemical
-\item Vitamin B in each chemical
-\item Vitamin C in each chemical
-\item Vitamin D in each chemical
-\item Cost of each chemical
-\end{itemize}
-\smallskip \underline{Decision variables:} \\
-$x_i$ : grams of chemical $i$ to include in the purple tablet, $\forall i = 1,2,3,4$.\\
-\smallskip \underline{Objective and Constraints:}
-\begin{align*}
-\min\ & z = 1.25x_1 + 1.05x_2 + 0.85x_3 + 0.65x_4 \\
-s.t. &  6x_1 + 4x_2 + 5x_3 + 3x_4 \ge 20 \\
-& 6x_1 + 5x_2 + 2x_3 + 6x_4 \ge 25  \\
-& 7x_1 + 4x_2 + 5x_3 + 3x_4 \ge 30  \\
-& 4x_1 + 9x_2 + 6x_3 + 2x_4 \ge 15  \\
-& 1000x_1 + 250x_2 + 850x_3 + 750x_4 \ge 2000 \\
-& x_1 + x_2 + x_3 + x_4 = 10  \\
-& x_1, x_2, x_3, x_4 \ge 0. 
-\end{align*}
-
-\end{solution}
 
 
 
 
 
-\begin{examplewithallcode}{Work Scheduling Problem}
-{}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/work_scheduling_gurobi.ipynb}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/work_scheduling_pulp.ipynb}
-You are the manager of LP Burger. The following table shows the minimum number of employees required to staff the restaurant on each day of the week. Each employees must work for five consecutive days. Formulate an LP to find the minimum number of employees required to staff the restaurant.
 
-\end{examplewithallcode}
-
-\begin{table}[h!] \begin{center} \begin{tabular} {|l|l|} 
-\hline Day of Week & Workers Required   \\ \hline
-\hline  1 = Monday & 6  \\
-\hline  2 = Tuesday & 4  \\
-\hline  3 = Wednesday & 5  \\
-\hline  4 = Thursday & 4  \\
-\hline  5 = Friday & 3  \\
-\hline  6 = Saturday & 7  \\
-\hline  7 = Sunday & 7  \\
-\hline \end{tabular} \end{center} \end{table}
-
-
-\begin{solution} This problem has multiple optimal solutions for which days workers begin working on, all of which result in 8 total workers hired. 
-
-\underline{Decision variables:} \\
-$x_i$ : the number of workers that start 5 consecutive days of work on day $i$, $ i = 1,\cdots,7$ \\
-\smallskip \underline{Objective and Constraints:}
-\begin{align*}
-\mbox{Min~~ } & z = x_1 + x_2 + x_3 + x_4 + x_5 + x_6 + x_7  \\
-\mbox{s.t.~~} & x_1 + x_4 + x_5 + x_6 + x_7 \ge 6 \\
-& x_2 + x_5 + x_6 + x_7 + x_1 \ge 4 \\
-& x_3 + x_6 + x_7 + x_1 + x_2 \ge 5 \\
-& x_4 + x_7 + x_1 + x_2 + x_3 \ge 4 \\
-& x_5 + x_1 + x_2 + x_3 + x_4 \ge 3 \\
-& x_6 + x_2 + x_3 + x_4 + x_5 \ge 7 \\
-& x_7 + x_3 + x_4 + x_5 + x_6 \ge 7 \\
-& x_1, x_2, x_3, x_4, x_5, x_6, x_7 \ge 0.
-\end{align*}
-
-One solution is as follows:
-%\begin{table}[h!] 
-\begin{center} \begin{tabular} {|l|l|}
-\hline   LP Solution        & IP Solution \\
-\hline  $z_{LP} = 7.333$    & $z_I = 8.0$ \\
-\hline  $x_1 = 0$           & $x_1 = 0$ \\
-\hline  $x_2 = 0.333$       & $x_2 = 0 $ \\
-\hline  $x_3 = 1$           & $x_3 = 0$ \\
-\hline  $x_4 = 2.333$       & $x_4 = 3$ \\
-\hline  $x_5 = 0$           & $x_5 = 0 $ \\
-\hline  $x_6 = 3.333$       & $x_6 = 4 $ \\
-\hline  $x_7 = 0.333$       & $x_7 = 1 $ \\
-\hline
-\end{tabular} \end{center} 
-%\end{table}
-\end{solution}
 
 
 

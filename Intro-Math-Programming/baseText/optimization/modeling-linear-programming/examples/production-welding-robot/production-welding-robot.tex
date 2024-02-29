@@ -1,0 +1,38 @@
+\begin{examplewithallcode}{Production with welding robot}
+{}
+{https://github.com/open-optimization/open-optimization-or-examples/blob/master/linear-programming/production_welding/production_welding_pulp.ipynb}
+{https://github.com/open-optimization/open-optimization-or-examples/blob/master/linear-programming/production_welding/production_welding_gurobipy.ipynb}
+%{productionproblem}{}{}{}
+You have 21 units of transparent aluminum alloy (TAA), LazWeld1, a joining robot leased for 23 hours, and CrumCut1, a cutting robot leased for 17 hours of aluminum cutting. You also have production code for a bookcase, desk, and cabinet, along with commitments to buy any of these you can produce for \$18,  \$16, and  \$10 apiece, respectively.  A bookcase requires 2 units of TAA, 3 hours of joining, and 1 hour of cutting, a desk requires 2 units of TAA, 2 hours of joining, and 2 hour of cutting, and a cabinet requires 1 unit of TAA, 2 hours of joining, and 1 hour of cutting. Formulate an LP to maximize your revenue given your current resources.
+
+
+\begin{solution}
+
+\noindent\medskip \underline{Sets:}
+\begin{itemize}
+\item The types of objects $ = \{$ bookcase,~desk,~cabinet$\}$.
+\end{itemize}
+\medskip \underline{Parameters:} 
+\begin{itemize}
+\item Purchase cost of each object
+\item Units of TAA needed for each object
+\item Hours of joining needed for each object
+\item Hours of cutting needed for each object
+\item Hours of TAA, Joining, and Cutting available on robots
+\end{itemize}
+
+\noindent\medskip \underline{Decision variables:} \\
+$x_i$ : number of units of product $i$ to produce, \\
+for all $ i = $bookcase,~desk,~cabinet.\\
+
+\noindent \medskip \underline{Objective and Constraints:}
+\begin{align*}
+\max \ \ & z = 18x_1 + 16x_2 + 10x_3  & \text{ (profit)}\\
+s.t. \ \ & 2x_1 + 2x_2 + 1x_3 \le 21 & (TAA) \\
+& 3x_1 + 2x_2 + 2x_3 \le 23 & (LazWeld1) \\
+&  1x_1 + 2x_2 + 1x_3 \le 17 & (CrumCut1)  \\
+& x_1, x_2, x_3 \ge 0.
+\end{align*}
+\end{solution}
+\end{examplewithallcode}
+    
