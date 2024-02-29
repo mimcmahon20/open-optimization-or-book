@@ -186,8 +186,10 @@ Notes: Clean up this section.   Finish describing several of the problems, give 
 We will begin with a few examples, and then discuss specific problem types that occur often.
 \newpage
 
+% File path to example folder used for section x.2
 %\input{optimization/modeling-linear-programming/examples
 
+% GENERAL EXAMPLES BEFORE CATEGORIES
 \input{optimization/modeling-linear-programming/examples/production-welding-robot/production-welding-robot.tex}
 
 \input{optimization/modeling-linear-programming/examples/diet/diet.tex}
@@ -196,282 +198,26 @@ We will begin with a few examples, and then discuss specific problem types that 
 
 \input{optimization/modeling-linear-programming/examples/work-scheduling/work-scheduling.tex}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+\input{optimization/modeling-linear-programming/examples/work-scheduling-extended/work-scheduling-extended.tex}
 
 \newpage
-\begin{examplewithallcode}{LP Burger - extended}
-{}
-{}
-{}
-LP Burger has changed its policy, and allows, at most, two part time workers, who work for two consecutive days in a week.  Formulate this problem.
-\end{examplewithallcode}
-\begin{solution}
-\underline{Decision variables:} \\
-$x_i$ : the number of workers that start 5 consecutive days of work on day $i$, $ i = 1,\cdots,7$ \\
-$y_i$ : the number of workers that start 2 consecutive days of work on day $i$, $ i = 1,\cdots,7$.
-
-\smallskip \underline{Objective and Constraints:}
-\begin{align*}
-\mbox{Min~~ } & z = 5(x_1 + x_2 + x_3 + x_4 + x_5 + x_6 + x_7) \\
-& + 2(y_1 + y_2 + y_3 + y_4 + y_5 + y_6 + y_7) \nonumber \\
-\mbox{s.t.~~} & x_1 + x_4 + x_5 + x_6 + x_7 + y_1 + y_7 \ge 6 \\
-& x_2 + x_5 + x_6 + x_7 + x_1 + y_2 + y_1 \ge 4 \\
-&           x_3 + x_6 + x_7 + x_1 + x_2 + y_3 + y_2 \ge 5 \\
-&           x_4 + x_7 + x_1 + x_2 + x_3 + y_4 + y_3 \ge 4 \\
-&           x_5 + x_1 + x_2 + x_3 + x_4 + y_5 + y_4 \ge 3 \\
-&           x_6 + x_2 + x_3 + x_4 + x_5 + y_6 + y_5 \ge 7 \\
-&           x_7 + x_3 + x_4 + x_5 + x_6 + y_7 + y_6 \ge 7 \\
-&           y_1 + y_2 + y_3 + y_4 + y_5 + y_6 + y_7 \le 2 \\
-&           x_i \ge 0, y_i \ge 0, \forall i = 1,\cdots,7.
-\end{align*}
-\end{solution}
-
 
 
 % SUBSECTION 3.2.1
 \newpage
 \subsection{Knapsack Problem}
-\begin{examplewithallcode}{Camping Trip}
-{}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/knapsack-three-two-one-gurobi.ipynb}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/knapsack-three-two-one-pulp.ipynb}
-Imagine you are preparing for a week-long camping trip to the mountains. You have a backpack with a weight capacity of 20 kilograms. Your goal is to pack the most valuable items to ensure a comfortable and safe trip without exceeding the backpack's weight limit. Each item has a weight and a value associated with it, representing its importance and utility for the trip. The table below lists the potential items you can take, their weights in kilograms, and their values on a scale from 1 to 10 (with 10 being the most valuable).
-\newline
-Formulate an Integer Program to find the optimal items you should bring on your trip with you. 
-\end{examplewithallcode}
-
-\begin{table}[h!] \begin{center} \begin{tabular} {|l|l|l|l|} 
-\hline Item & Index & Weight (kg) & Value  \\ \hline
-\hline Tent & A & 4 & 10  \\
-\hline Stove & B & 2 & 9  \\
-\hline Sleeping Bag & C & 3 & 8  \\
-\hline First Aid Kit & D & 1 & 7  \\
-\hline Food Supplies & E & 5 & 9  \\
-\hline Water Filter & F & 1 & 6  \\
-\hline Clothes & G & 4 & 5  \\
-\hline Map and Compass & H & 0.5 & 7  \\
-\hline \end{tabular} \end{center} \end{table}
-
-\begin{solution}
-\underline{Decision variables:} \\
-$x_i$ : whether to include item $i$ in the backpack, where $i \in \{A, B, C, D, E, F, G, H\}$, $x_i = 1$ if item $i$ is included, and $x_i = 0$ otherwise.
-
-\smallskip \underline{Objective and Constraints:}
-\begin{align*}
-\mbox{Max~~ } & Z = 10x_A + 9x_B + 8x_C + 7x_D + 9x_E + 6x_F + 5x_G + 7x_H  \\
-\mbox{s.t.~~} & 4x_A + 2x_B + 3x_C + 1x_D + 5x_E + 1x_F + 4x_G + 0.5x_H \le 20 \\
-& x_A, x_B, x_C, x_D, x_E, x_F, x_G, x_H \in \{0,1\}.
-\end{align*}
-\end{solution}
-
-\todo{inline}{Add excercise for user: Suppose you were shipped the wrong bag, and your carrying limit is now only 15 kilograms. What changes would you make to your plan considering this change? What changes would you make to the model to reflect this change? What're the new optimal items to carry?}
+\input{optimization/modeling-linear-programming/examples/knapsack/knapsack.tex}
 
 % SUBSECTION 3.2.2
 \subsection{Capital Investment}
+\input{optimization/modeling-linear-programming/examples/capital-allocation/capital-allocation.tex}
 
-%FIRST EXAMPLE OF CAPITAL INVESTMENT
-\begin{examplewithallcode}{Capital Allocation Problem}
-{}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/knapsack-capital-allocation-pulp.ipynb}
-{https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/optimization-examples/knapsack-capital-allocation-gurobi.ipynb}
-You are a financial planner for an investment firm. The firm has \$100,000 to invest in a portfolio of projects. Each project has a projected return and requires an initial investment. The goal is to maximize the total return of the portfolio while not exceeding the available capital. The following table lists potential projects, their required investments, and their projected returns.
-
-Formulate an LP to maximize the total return of the portfolio while not exceeding the available investment capital.
-\end{examplewithallcode}
-
-
-\begin{table}[h!] \begin{center} \begin{tabular} {|l|l|l|} 
-\hline Project & Investment Required (\$) & Projected Return (\$)  \\ \hline
-\hline  A & 20,000 & 30,000  \\
-\hline  B & 30,000 & 40,000  \\
-\hline  C & 50,000 & 75,000  \\
-\hline  D & 10,000 & 15,000  \\
-\hline  E & 40,000 & 60,000  \\
-\hline \end{tabular} \end{center} \end{table}
-
-
-\begin{solution}
-\underline{Decision variables:} \\
-$x_i$ : whether to include project $i$ in the portfolio, where $i \in \{A, B, C, D, E\}$, $x_i = 1$ if project $i$ is included, and $x_i = 0$ otherwise.
-
-\smallskip \underline{Objective and Constraints:}
-\begin{align*}
-\mbox{Max~~ } & z = 30,000x_A + 40,000x_B + 75,000x_C + 15,000x_D + 60,000x_E  \\
-\mbox{s.t.~~} & 20,000x_A + 30,000x_B + 50,000x_C + 10,000x_D + 40,000x_E \le 100,000 \\
-& x_A, x_B, x_C, x_D, x_E \in \{0,1\}.
-\end{align*}
-\end{solution}
-
-
-
-
-
-% 2ND EXAMPLE FOR CAPITAL INVESTMENT
-\begin{examplewithallcode}{Capital Investment\footnote{We thank \url{excel-easy.com} for sharing this example with us and allowing us to link to their excel solution.}}{https://www.excel-easy.com/examples/capital-investment.html}{}{}
-
-
-\end{examplewithallcode}
-
-
-
-
-
+% SUBSECTION 3.2.3
 \subsection{Work Scheduling}
 
-
+% SUBSECTION 3.2.4
 \subsection{Assignment Problem}
-Consider the assignment of $n$ teams to $n$ projects, where each team ranks the projects, where their favorite project is given a rank of $n$, their next favorite $n-1$, and their least favorite project is given a rank of 1.  The assignment problem is formulated as follows (we denote ranks using the $R$-parameter):
-
-\smallskip \underline{Variables:} \\
-$x_{ij}$ : 1 if project $i$ assigned to team $j$, else 0.
-\begin{align*}
-\mbox{Max~}   & z = \sum_{i=1}^{n}\sum_{j=1}^{n} R_{ij} x_{ij}  \\
-\mbox{s.t.~}& \sum_{i=1}^{n} x_{ij} = 1,~~ \forall j = 1,\cdots,n  \\
-& \sum_{j=1}^{n} x_{ij} = 1,~~ \forall i = 1,\cdots,n  \\
-& x_{ij} \ge 0,~~ \forall i = 1,\cdots,n, j = 1,\cdots,n. 
-\end{align*}
-
-\begin{examplewithallcode}{Hiring for tasks}{https://www.excel-easy.com/examples/assignment-problem.html}{}{}
-In this assignment problem, we need to hire three people (Person 1, Person 2, Person 3) to three tasks (Task 1, Task 2, Task 3).   In the table below, we list the cost of hiring each person for each task, in dollars.  Since each person has a different cost for each task, we must make an assignment to minimize our total cost.
-    \begin{tabular}{llll}
-    \hline
-        Cost & Task 1 & Task 2 & Task 3  \\ \hline
-        Person 1 & 40 & 47 & 80  \\ \hline
-        Person 2 & 72 & 36 & 58  \\ \hline
-        Person 3 & 24 & 61 & 71 \\ \hline
-    \end{tabular}
-
-Given the specific costs of assigning three people to three tasks, we can write out the mathematical model explicitly using the given numbers.
-
-\textbf{Objective Function:}
-
-Minimize the total cost of assignments:
-\begin{equation}
-    Z = 40x_{11} + 47x_{12} + 80x_{13} + 72x_{21} + 36x_{22} + 58x_{23} + 24x_{31} + 61x_{32} + 71x_{33}
-\end{equation}
-
-\textbf{Subject to Constraints:}
-
-Each person is assigned to exactly one task:
-\begin{align}
-    x_{11} + x_{12} + x_{13} &= 1 \\
-    x_{21} + x_{22} + x_{23} &= 1 \\
-    x_{31} + x_{32} + x_{33} &= 1
-\end{align}
-
-Each task is assigned to exactly one person:
-\begin{align}
-    x_{11} + x_{21} + x_{31} &= 1 \\
-    x_{12} + x_{22} + x_{32} &= 1 \\
-    x_{13} + x_{23} + x_{33} &= 1
-\end{align}
-
-Binary constraints on the variables:
-\begin{equation}
-    x_{ij} \in \{0, 1\} \quad \forall i \in \{1, 2, 3\}, \forall j \in \{1, 2, 3\}
-\end{equation}
-
-This explicit model incorporates the specific costs associated with each person-task assignment and ensures that each person is assigned to exactly one task, each task is assigned to exactly one person, and the overall cost is minimized.
-
-
-
-
-We could write out this model using more generic notation in the following way: We define the following sets, parameters, and variables to construct the mathematical model.
-
-\textbf{Sets:}
-\begin{itemize}
-    \item $I = \{1, 2, 3\}$, the set of people.
-    \item $J = \{1, 2, 3\}$, the set of tasks.
-\end{itemize}
-
-\textbf{Parameters:}
-\begin{itemize}
-    \item $C_{ij}$, the cost of assigning person $i \in I$ to task $j \in J$. The costs are given in the following table:
-    \begin{align*}
-        C = \begin{bmatrix}
-            40 & 47 & 80 \\
-            72 & 36 & 58 \\
-            24 & 61 & 71 \\
-        \end{bmatrix}
-    \end{align*}
-\end{itemize}
-
-\textbf{Variables:}
-\begin{itemize}
-    \item $x_{ij} = 
-    \begin{cases} 
-    1 & \text{if person } i \text{ is assigned to task } j \\
-    0 & \text{otherwise}
-    \end{cases}$ for all $i \in I, j \in J$.
-\end{itemize}
-
-\textbf{Model:}
-
-The objective is to minimize the total cost of assignments:
-
-\begin{equation}
-    \text{Minimize} \quad Z = \sum_{i \in I} \sum_{j \in J} C_{ij} x_{ij}
-\end{equation}
-
-Subject to the constraints:
-
-1. Each person is assigned to exactly one task:
-
-\begin{equation}
-    \sum_{j \in J} x_{ij} = 1 \quad \forall i \in I
-\end{equation}
-
-2. Each task is assigned to exactly one person:
-
-\begin{equation}
-    \sum_{i \in I} x_{ij} = 1 \quad \forall j \in J
-\end{equation}
-
-3. Binary constraints on the variables:
-
-\begin{equation}
-    x_{ij} \in \{0, 1\} \quad \forall i \in I, \forall j \in J
-\end{equation}
-
-This model ensures that each person is assigned to exactly one task, each task is assigned to exactly one person, and the total cost of the assignments is minimized.
-
-
-
-\end{examplewithallcode}
-\todo[inline]{Add mathematical model}
-
-
-The assignment problem has an integrality property, such that if we remove the binary restriction on the $x$ variables (now just non-negative, i.e., $x_{ij} \ge 0$) then we still get binary assignments, despite the fact that it is now an LP.  This property is very interesting and useful. Of course, the objective function might not quite what we want, we might be interested ensuring that the team with the worst assignment is as good as possible (a fairness criteria). One way of doing this is to modify the assignment problem using a max-min objective:
-
-\medskip {\bf Max-min Assignment-like Formulation} \\
-\begin{eqnarray}
-& Max  & z  \nonumber \\
-& s.t. & \sum_{i=1}^{n} x_{ij} = 1,~~ \forall j = 1,\cdots,n \nonumber \\
-&      & \sum_{j=1}^{n} x_{ij} = 1,~~ \forall i = 1,\cdots,n \nonumber \\
-&      & x_{ij} \ge 0,~~ \forall i = 1,\cdots,n, J = 1,\cdots,n \nonumber \\
-&      & z \le \sum_{i=1}^{n} R_{ij} x_{ij},~~ \forall j = 1,\cdots,n. \nonumber
-\end{eqnarray}
-Does this formulation have the integrality property (it is not an assignment problem)?  Consider a very simple example where two teams are to be assigned to two projects and the teams give the projects the following rankings:
-\begin{table}[h!] \begin{center} \begin{tabular} {|c||c|c|}
-\hline           & Project~1 & Project~2 \\ \hline \hline
-\hline Team 1    & 2  & 1  \\
-\hline Team 2    & 2  & 1 \\ \hline
-\end{tabular} \end{center} \end{table}
-Both teams prefer Project 2.  For both problems, if we remove the binary restriction on the
-$x$-variable, they can take values between (and including) zero and one. For the assignment problem the optimal solution will have $z=3$, and fractional $x$-values will not improve $z$. For the max-min assignment problem this is not the case, the optimal solution will have $z=1.5$, which occurs when each team is assigned half of each project (i.e., for Team 1 we have $x_{11} = 0.5$ and $x_{21} = 0.5$).
-
+\input{optimization/modeling-linear-programming/examples/assignment/assignment.tex}
 
 
 \subsection{Multi period Models}

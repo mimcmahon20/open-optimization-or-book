@@ -1,0 +1,139 @@
+Consider the assignment of $n$ teams to $n$ projects, where each team ranks the projects, where their favorite project is given a rank of $n$, their next favorite $n-1$, and their least favorite project is given a rank of 1.  The assignment problem is formulated as follows (we denote ranks using the $R$-parameter):
+
+\smallskip \underline{Variables:} \\
+$x_{ij}$ : 1 if project $i$ assigned to team $j$, else 0.
+\begin{align*}
+\mbox{Max~}   & z = \sum_{i=1}^{n}\sum_{j=1}^{n} R_{ij} x_{ij}  \\
+\mbox{s.t.~}& \sum_{i=1}^{n} x_{ij} = 1,~~ \forall j = 1,\cdots,n  \\
+& \sum_{j=1}^{n} x_{ij} = 1,~~ \forall i = 1,\cdots,n  \\
+& x_{ij} \ge 0,~~ \forall i = 1,\cdots,n, j = 1,\cdots,n. 
+\end{align*}
+
+\begin{examplewithallcode}{Hiring for tasks}{https://www.excel-easy.com/examples/assignment-problem.html}{}{}
+In this assignment problem, we need to hire three people (Person 1, Person 2, Person 3) to three tasks (Task 1, Task 2, Task 3).   In the table below, we list the cost of hiring each person for each task, in dollars.  Since each person has a different cost for each task, we must make an assignment to minimize our total cost.
+    \begin{tabular}{llll}
+    \hline
+        Cost & Task 1 & Task 2 & Task 3  \\ \hline
+        Person 1 & 40 & 47 & 80  \\ \hline
+        Person 2 & 72 & 36 & 58  \\ \hline
+        Person 3 & 24 & 61 & 71 \\ \hline
+    \end{tabular}
+
+Given the specific costs of assigning three people to three tasks, we can write out the mathematical model explicitly using the given numbers.
+
+\textbf{Objective Function:}
+
+Minimize the total cost of assignments:
+\begin{equation}
+    Z = 40x_{11} + 47x_{12} + 80x_{13} + 72x_{21} + 36x_{22} + 58x_{23} + 24x_{31} + 61x_{32} + 71x_{33}
+\end{equation}
+
+\textbf{Subject to Constraints:}
+
+Each person is assigned to exactly one task:
+\begin{align}
+    x_{11} + x_{12} + x_{13} &= 1 \\
+    x_{21} + x_{22} + x_{23} &= 1 \\
+    x_{31} + x_{32} + x_{33} &= 1
+\end{align}
+
+Each task is assigned to exactly one person:
+\begin{align}
+    x_{11} + x_{21} + x_{31} &= 1 \\
+    x_{12} + x_{22} + x_{32} &= 1 \\
+    x_{13} + x_{23} + x_{33} &= 1
+\end{align}
+
+Binary constraints on the variables:
+\begin{equation}
+    x_{ij} \in \{0, 1\} \quad \forall i \in \{1, 2, 3\}, \forall j \in \{1, 2, 3\}
+\end{equation}
+
+This explicit model incorporates the specific costs associated with each person-task assignment and ensures that each person is assigned to exactly one task, each task is assigned to exactly one person, and the overall cost is minimized.
+
+
+
+
+We could write out this model using more generic notation in the following way: We define the following sets, parameters, and variables to construct the mathematical model.
+
+\textbf{Sets:}
+\begin{itemize}
+    \item $I = \{1, 2, 3\}$, the set of people.
+    \item $J = \{1, 2, 3\}$, the set of tasks.
+\end{itemize}
+
+\textbf{Parameters:}
+\begin{itemize}
+    \item $C_{ij}$, the cost of assigning person $i \in I$ to task $j \in J$. The costs are given in the following table:
+    \begin{align*}
+        C = \begin{bmatrix}
+            40 & 47 & 80 \\
+            72 & 36 & 58 \\
+            24 & 61 & 71 \\
+        \end{bmatrix}
+    \end{align*}
+\end{itemize}
+
+\textbf{Variables:}
+\begin{itemize}
+    \item $x_{ij} = 
+    \begin{cases} 
+    1 & \text{if person } i \text{ is assigned to task } j \\
+    0 & \text{otherwise}
+    \end{cases}$ for all $i \in I, j \in J$.
+\end{itemize}
+
+\textbf{Model:}
+
+The objective is to minimize the total cost of assignments:
+
+\begin{equation}
+    \text{Minimize} \quad Z = \sum_{i \in I} \sum_{j \in J} C_{ij} x_{ij}
+\end{equation}
+
+Subject to the constraints:
+
+1. Each person is assigned to exactly one task:
+
+\begin{equation}
+    \sum_{j \in J} x_{ij} = 1 \quad \forall i \in I
+\end{equation}
+
+2. Each task is assigned to exactly one person:
+
+\begin{equation}
+    \sum_{i \in I} x_{ij} = 1 \quad \forall j \in J
+\end{equation}
+
+3. Binary constraints on the variables:
+
+\begin{equation}
+    x_{ij} \in \{0, 1\} \quad \forall i \in I, \forall j \in J
+\end{equation}
+
+This model ensures that each person is assigned to exactly one task, each task is assigned to exactly one person, and the total cost of the assignments is minimized.
+
+
+
+\end{examplewithallcode}
+\todo[inline]{Add mathematical model}
+
+
+The assignment problem has an integrality property, such that if we remove the binary restriction on the $x$ variables (now just non-negative, i.e., $x_{ij} \ge 0$) then we still get binary assignments, despite the fact that it is now an LP.  This property is very interesting and useful. Of course, the objective function might not quite what we want, we might be interested ensuring that the team with the worst assignment is as good as possible (a fairness criteria). One way of doing this is to modify the assignment problem using a max-min objective:
+
+\medskip {\bf Max-min Assignment-like Formulation} \\
+\begin{eqnarray}
+& Max  & z  \nonumber \\
+& s.t. & \sum_{i=1}^{n} x_{ij} = 1,~~ \forall j = 1,\cdots,n \nonumber \\
+&      & \sum_{j=1}^{n} x_{ij} = 1,~~ \forall i = 1,\cdots,n \nonumber \\
+&      & x_{ij} \ge 0,~~ \forall i = 1,\cdots,n, J = 1,\cdots,n \nonumber \\
+&      & z \le \sum_{i=1}^{n} R_{ij} x_{ij},~~ \forall j = 1,\cdots,n. \nonumber
+\end{eqnarray}
+Does this formulation have the integrality property (it is not an assignment problem)?  Consider a very simple example where two teams are to be assigned to two projects and the teams give the projects the following rankings:
+\begin{table}[h!] \begin{center} \begin{tabular} {|c||c|c|}
+\hline           & Project~1 & Project~2 \\ \hline \hline
+\hline Team 1    & 2  & 1  \\
+\hline Team 2    & 2  & 1 \\ \hline
+\end{tabular} \end{center} \end{table}
+Both teams prefer Project 2.  For both problems, if we remove the binary restriction on the
+$x$-variable, they can take values between (and including) zero and one. For the assignment problem the optimal solution will have $z=3$, and fractional $x$-values will not improve $z$. For the max-min assignment problem this is not the case, the optimal solution will have $z=1.5$, which occurs when each team is assigned half of each project (i.e., for Team 1 we have $x_{11} = 0.5$ and $x_{21} = 0.5$).
