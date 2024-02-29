@@ -1,0 +1,28 @@
+\begin{examplewithallcode}{Crop Planning Problem}
+    {}
+    {https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/modeling-linear-programming/examples/crop-planning/crop_planning_gurobi.ipynb}
+    {https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/modeling-linear-programming/examples/crop-planning/crop_planning_pulp.ipynb}
+    A farmer has a farm that can support up to 100 hectares of crops. There are two seasons in a year. The farmer can plant wheat or corn in each season, but each crop requires specific amounts of land and has different costs and expected revenues. The goal is to determine how much of each crop to plant in each season to maximize total profit.
+    \end{examplewithallcode}
+    \begin{table}[h!]
+    \begin{center}
+    \begin{tabular} {|l|l|l|l|}
+    \hline Crop & Season & Cost (\$ per hectare) & Revenue (\$ per hectare) \\ \hline
+    \hline Wheat & 1 & 150 & 500 \\
+    \hline Corn & 1 & 230 & 750 \\
+    \hline Wheat & 2 & 130 & 600 \\
+    \hline Corn & 2 & 200 & 800 \\
+    \hline \end{tabular} \end{center}
+    \end{table}
+    \begin{solution}
+    \underline{Decision variables:} \\
+    w_{s} : \text{hectares of wheat planted in season } s, \ s = 1,2 \\
+    c_{s} : \text{hectares of corn planted in season } s, \ s = 1,2 \\
+    \underline{Objective and Constraints:}
+    \begin{align*}
+    \mbox{Maximize~~ } & z = \sum_{s=1}^{2} ((500-150) \cdot w_{s} + (750-230) \cdot c_{s}) \text{ for season 1 and } \\
+    & \phantom{{}=} \sum_{s=1}^{2} ((600-130) \cdot w_{s} + (800-200) \cdot c_{s}) \text{ for season 2} \\
+    \mbox{subject to~~} & w_{s} + c_{s} \le 100, \ s = 1,2 \\
+    & w_{s}, c_{s} \ge 0, \ s = 1,2.
+    \end{align*}
+    \end{solution}

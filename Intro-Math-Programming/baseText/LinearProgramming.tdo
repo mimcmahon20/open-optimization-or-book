@@ -18,32 +18,30 @@
 \contentsline {todo}{\textbf {Section 3\hspace {-0.5pt}.1\hspace {-0.5pt}. Modeling and Assumptions in Linear Programming}\\ 20\% complete. Goal 80\% completion date: July 20\\ Notes: Clean up this section. Describe process of modeling a problem.}{27}{section*.26}%
 \contentsline {todo}{\textbf {Section 3\hspace {-0.5pt}.2\hspace {-0.5pt}. Examples}\\ 40\% complete. Goal 80\% completion date: July 20\\ Notes: Clean up this section. Finish describing several of the problems, give examples for all problem classes and attach code to all examples.}{29}{section*.27}%
 \contentsline {todo}{Decide where we introduce set notation and change over the code to set notation models written up.}{29}{section*.28}%
-\contentsline {todo}{inline}{35}{section*.33}%
-\contentsline {todo}{Add mathematical model}{39}{section*.35}%
-\contentsline {todo}{Fill in this subsection}{40}{section*.37}%
-\contentsline {todo}{Fill in this subsection}{40}{section*.38}%
-\contentsline {todo}{Make tikz/python graphs uniform.}{43}{section*.39}%
-\contentsline {todo}{\textbf {Section 3\hspace {-0.5pt}.3\hspace {-0.5pt}. Modeling Tricks}\\ 40\% complete. Goal 80\% completion date: July 20\\ Notes: Only one modeling trick listed here. Discuss absolute value application and also making a free variable non-negative.}{45}{section*.42}%
-\contentsline {todo}{\textbf {Chapter 4\hspace {-0.5pt}. Graphically Solving Linear Programs}\\ {\color {gray}50\% complete. Goal 80\% completion date: July 20}\\ Notes: }{47}{section*.43}%
-\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.1\hspace {-0.5pt}. Nonempty and Bounded Problem}\\ 20\% complete. Goal 80\% completion date: August 20\\ Notes: Need to work on this section.}{47}{section*.44}%
-\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.2\hspace {-0.5pt}. Infinitely Many Optimal Solutions}\\ 20\% complete. Goal 80\% completion date: August 20\\ Notes: Need to work on this section.}{51}{section*.46}%
-\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.3\hspace {-0.5pt}. Problems with No Solution}\\ 20\% complete. Goal 80\% completion date: August 20\\ Notes: Need to work on this section.}{54}{section*.48}%
-\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.4\hspace {-0.5pt}. Problems with Unbounded Feasible Regions}\\ 20\% complete. Goal 80\% completion date: July 20\\ Notes: Need to work on this section.}{56}{section*.50}%
-\contentsline {todo}{To do: add contours to plot to show extreme point is the optimal solution.}{56}{section*.51}%
-\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.5\hspace {-0.5pt}. Formal Mathematical Statements}\\ 20\% complete. Goal 80\% completion date: July 20\\ Notes: Need to work on this section.}{60}{section*.54}%
-\contentsline {todo}{\textbf {Chapter 5\hspace {-0.5pt}. Software - Excel}\\ {\color {gray}10\% complete. Goal 80\% completion date: January 20, 2023}\\ Notes: }{73}{section*.55}%
-\contentsline {todo}{\textbf {Chapter 6\hspace {-0.5pt}. Software - Python}\\ {\color {gray}10\% complete. Goal 80\% completion date: August 20}\\ Notes: }{75}{section*.56}%
-\contentsline {todo}{\textbf {Section 6\hspace {-0.5pt}.11\hspace {-0.5pt}. Gurobi}\\ Link to introductory Gurobi files and installation instructions. Show how grblogtools can show progress of integer programs and compare models across a set of instances.}{108}{section*.65}%
-\contentsline {todo}{\textbf {Section 6\hspace {-0.5pt}.12\hspace {-0.5pt}. Plots, Pandas, and Geopandas}\\ }{109}{section*.66}%
-\contentsline {todo}{Add Matplotlib tutorial reference.}{109}{section*.67}%
-\contentsline {todo}{Add Panadas tutorial.}{109}{section*.68}%
-\contentsline {todo}{\textbf {Section 6\hspace {-0.5pt}.13\hspace {-0.5pt}. Google OR Tools}\\ Give introduction to Google OR Tools and what problems it can solve.}{109}{section*.69}%
-\contentsline {todo}{\textbf {Chapter 7\hspace {-0.5pt}. CASE STUDY - Designing a campground - Simplex method}\\ 0\% complete. \\ Notes: Borrowed from Karin Vorwerk. Need to integrate this into other chapters.}{111}{section*.70}%
-\contentsline {todo}{\textbf {Chapter 8\hspace {-0.5pt}. Simplex Method}\\ {\color {gray}10\% complete. Goal 80\% completion date: January 20, 2023}\\ Notes: This section hasn't been cleaned at all. This needs to be looked at and cleaned up.}{127}{section*.71}%
-\contentsline {todo}{\textbf {Section 8\hspace {-0.5pt}.1\hspace {-0.5pt}. The Simplex Method}\\ Integrate this to next chapter (chapter on simplex method)}{129}{section*.72}%
-\contentsline {todo}{\textbf {Chapter 9\hspace {-0.5pt}. Duality}\\ {\color {gray}0\% complete. Goal 80\% completion date: January 20, 2023}\\ Notes: This is a borrowed section. Likely we should update this to match out CC-BY-SA 4.0 license. Also, update all content to match notation in the book.}{145}{section*.75}%
-\contentsline {todo}{\textbf {Chapter 10\hspace {-0.5pt}. Sensitivity Analysis}\\ {\color {gray}0\% complete. Goal 80\% completion date: January 20, 2023}\\ Notes: Need to write this section. Add exmaples from lecture notes. Create code to help generate examples.}{159}{section*.76}%
-\contentsline {todo}{\textbf {Chapter 11\hspace {-0.5pt}. Multi-Objective Optimization}\\ {\color {gray}10\% complete. Goal 80\% completion date: January 20 ,2023}\\ Notes: Clean up this section. Add more information.}{161}{section*.77}%
-\contentsline {todo}{\textbf {Chapter 12\hspace {-0.5pt}. Graph Algorithms}\\ {\color {gray}10\% complete. Goal 80\% completion date: August 20}\\ Notes: .}{173}{section*.78}%
-\contentsline {todo}{Write this section.}{173}{section*.79}%
-\contentsline {todo}{\textbf {Chapter 1\hspace {-0.5pt}. Linear Algebra}\\ Decide which material to add here.}{203}{section*.81}%
+\contentsline {todo}{inline}{34}{section*.32}%
+\contentsline {todo}{Add mathematical model}{40}{section*.35}%
+\contentsline {todo}{Make tikz/python graphs uniform.}{45}{section*.38}%
+\contentsline {todo}{\textbf {Section 3\hspace {-0.5pt}.3\hspace {-0.5pt}. Modeling Tricks}\\ 40\% complete. Goal 80\% completion date: July 20\\ Notes: Only one modeling trick listed here. Discuss absolute value application and also making a free variable non-negative.}{47}{section*.41}%
+\contentsline {todo}{\textbf {Chapter 4\hspace {-0.5pt}. Graphically Solving Linear Programs}\\ {\color {gray}50\% complete. Goal 80\% completion date: July 20}\\ Notes: }{49}{section*.42}%
+\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.1\hspace {-0.5pt}. Nonempty and Bounded Problem}\\ 20\% complete. Goal 80\% completion date: August 20\\ Notes: Need to work on this section.}{49}{section*.43}%
+\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.2\hspace {-0.5pt}. Infinitely Many Optimal Solutions}\\ 20\% complete. Goal 80\% completion date: August 20\\ Notes: Need to work on this section.}{53}{section*.45}%
+\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.3\hspace {-0.5pt}. Problems with No Solution}\\ 20\% complete. Goal 80\% completion date: August 20\\ Notes: Need to work on this section.}{56}{section*.47}%
+\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.4\hspace {-0.5pt}. Problems with Unbounded Feasible Regions}\\ 20\% complete. Goal 80\% completion date: July 20\\ Notes: Need to work on this section.}{58}{section*.49}%
+\contentsline {todo}{To do: add contours to plot to show extreme point is the optimal solution.}{58}{section*.50}%
+\contentsline {todo}{\textbf {Section 4\hspace {-0.5pt}.5\hspace {-0.5pt}. Formal Mathematical Statements}\\ 20\% complete. Goal 80\% completion date: July 20\\ Notes: Need to work on this section.}{62}{section*.53}%
+\contentsline {todo}{\textbf {Chapter 5\hspace {-0.5pt}. Software - Excel}\\ {\color {gray}10\% complete. Goal 80\% completion date: January 20, 2023}\\ Notes: }{75}{section*.54}%
+\contentsline {todo}{\textbf {Chapter 6\hspace {-0.5pt}. Software - Python}\\ {\color {gray}10\% complete. Goal 80\% completion date: August 20}\\ Notes: }{77}{section*.55}%
+\contentsline {todo}{\textbf {Section 6\hspace {-0.5pt}.11\hspace {-0.5pt}. Gurobi}\\ Link to introductory Gurobi files and installation instructions. Show how grblogtools can show progress of integer programs and compare models across a set of instances.}{110}{section*.64}%
+\contentsline {todo}{\textbf {Section 6\hspace {-0.5pt}.12\hspace {-0.5pt}. Plots, Pandas, and Geopandas}\\ }{111}{section*.65}%
+\contentsline {todo}{Add Matplotlib tutorial reference.}{111}{section*.66}%
+\contentsline {todo}{Add Panadas tutorial.}{111}{section*.67}%
+\contentsline {todo}{\textbf {Section 6\hspace {-0.5pt}.13\hspace {-0.5pt}. Google OR Tools}\\ Give introduction to Google OR Tools and what problems it can solve.}{111}{section*.68}%
+\contentsline {todo}{\textbf {Chapter 7\hspace {-0.5pt}. CASE STUDY - Designing a campground - Simplex method}\\ 0\% complete. \\ Notes: Borrowed from Karin Vorwerk. Need to integrate this into other chapters.}{113}{section*.69}%
+\contentsline {todo}{\textbf {Chapter 8\hspace {-0.5pt}. Simplex Method}\\ {\color {gray}10\% complete. Goal 80\% completion date: January 20, 2023}\\ Notes: This section hasn't been cleaned at all. This needs to be looked at and cleaned up.}{129}{section*.70}%
+\contentsline {todo}{\textbf {Section 8\hspace {-0.5pt}.1\hspace {-0.5pt}. The Simplex Method}\\ Integrate this to next chapter (chapter on simplex method)}{131}{section*.71}%
+\contentsline {todo}{\textbf {Chapter 9\hspace {-0.5pt}. Duality}\\ {\color {gray}0\% complete. Goal 80\% completion date: January 20, 2023}\\ Notes: This is a borrowed section. Likely we should update this to match out CC-BY-SA 4.0 license. Also, update all content to match notation in the book.}{147}{section*.74}%
+\contentsline {todo}{\textbf {Chapter 10\hspace {-0.5pt}. Sensitivity Analysis}\\ {\color {gray}0\% complete. Goal 80\% completion date: January 20, 2023}\\ Notes: Need to write this section. Add exmaples from lecture notes. Create code to help generate examples.}{161}{section*.75}%
+\contentsline {todo}{\textbf {Chapter 11\hspace {-0.5pt}. Multi-Objective Optimization}\\ {\color {gray}10\% complete. Goal 80\% completion date: January 20 ,2023}\\ Notes: Clean up this section. Add more information.}{163}{section*.76}%
+\contentsline {todo}{\textbf {Chapter 12\hspace {-0.5pt}. Graph Algorithms}\\ {\color {gray}10\% complete. Goal 80\% completion date: August 20}\\ Notes: .}{175}{section*.77}%
+\contentsline {todo}{Write this section.}{175}{section*.78}%
+\contentsline {todo}{\textbf {Chapter 1\hspace {-0.5pt}. Linear Algebra}\\ Decide which material to add here.}{205}{section*.80}%

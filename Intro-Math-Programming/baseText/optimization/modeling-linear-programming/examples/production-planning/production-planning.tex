@@ -1,0 +1,28 @@
+\begin{examplewithallcode}{Production Planning Problem}
+    {}
+    {https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/modeling-linear-programming/examples/production-planning/production-planning-gurobi.ipynb}
+    {https://github.com/open-optimization/open-optimization-or-book/tree/master/Intro-Math-Programming/baseText/optimization/modeling-linear-programming/examples/production-planning/production-planning-pulp.ipynb}
+    You are the manager of a factory that produces three types of products: A, B, and C. Each product requires a different amount of time on two types of machines: Machine 1 and Machine 2. The factory operates these machines over a two-month period. The goal is to maximize profit while meeting the machine time constraints in each month.
+    Machine 1 has 150 hours available in the first month and 200 in the second month. Machine 2 has 100 hours available in the first month and 150 in the second month.
+    Each unit of Product A requires 1 hour on Machine 1 and 2 hours on Machine 2. Product B requires 2 hours on Machine 1 and 1 hour on Machine 2. Product C requires 3 hours on both machines.
+    The profit per unit is $5 for Product A, $4 for Product B, and $8 for Product C.
+    \end{examplewithallcode}
+    
+    
+    \begin{solution}
+    
+    \underline{Decision variables:} \\
+    $x_{ij}$: Number of units of product $i$ produced in month $j$, where $i \in {A, B, C}$ and $j \in {1, 2}$. \\
+    \smallskip \underline{Objective and Constraints:}
+\begin{align*}
+\mbox{Max~~} & z = 5(x_{A1} + x_{A2}) + 4(x_{B1} + x_{B2}) + 8(x_{C1} + x_{C2})
+\end{align*}
+
+\underline{Constraints:}
+\begin{align*}
+& x_{A1} + 2x_{B1} + 3x_{C1} \le 150 & \text{(Machine 1, Month 1)} \\
+& x_{A2} + 2x_{B2} + 3x_{C2} \le 200 & \text{(Machine 1, Month 2)} \\
+& 2x_{A1} + x_{B1} + 3x_{C1} \le 100 & \text{(Machine 2, Month 1)} \\
+& 2x_{A2} + x_{B2} + 3x_{C2} \le 150 & \text{(Machine 2, Month 2)} \\
+& x_{ij} \ge 0 & \forall i \in \{A, B, C\}, j \in \{1, 2\}
+\end{align*}
